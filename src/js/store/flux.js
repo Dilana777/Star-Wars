@@ -16,13 +16,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
+			getPlanets: async () => {
+				fetch("https://www.swapi.tech/api/planets/")
+					.then(response => response.json())
+					.then(data => console.log(data))
+					.catch(error => console.log("error", error));
+			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
 				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+                    fetch().then().then(data => setStore({ "foo": data.bar }))
+                    
+                */
 			},
 			changeColor: (index, color) => {
 				//get the store
